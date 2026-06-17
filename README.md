@@ -29,3 +29,23 @@ After merging, a separate cleaning step produces data/merged_clean.csv:
 - Missing residence — filled with "Unknown" rather than dropped since it's not critical to the analysis
 - String standardization — display_name title-cased, gender uppercased for consistency across years
 - Sorted by year → gender → gender_result (placement within gender)
+
+## Dashboard (dashboard.py)
+
+An interactive Panel dashboard for exploring the relationship between race-day
+conditions and marathon performance.
+### Widgets
+- Gender — filter all charts to Male, Female, or All runners
+- Year Range — slider to scope the analysis window (2010–2018)
+- Weather Variable — toggle between temperature, feels-like, wind, humidity, and precipitation for the scatter plot
+- Air Quality Metric — toggle between PM2.5, ozone, and NO2 for the AQ case study
+- Drill-down Year — select a single year to inspect in the runner table
+- Animation Player — step or play through years one at a time
+
+### Sections
+- Metrics row — four summary cards (avg finish time, avg temp, avg wind, runner count) that update with filters
+- Overview — line chart of average finish time by year
+- Weather scatter — finish time vs selected weather variable, colored by gender
+- Air quality case study — bar chart of AQ levels and finish time box plots for 2017–2018 only
+- Animated view — bar chart of avg finish time by gender that steps through years; title updates with that year's weather conditions
+- Drill-down table — paginated runner-level table for a selected year
